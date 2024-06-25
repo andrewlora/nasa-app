@@ -9,7 +9,7 @@ const TodaysImage: FC<PostImage> = ({date, title, url}) => {
       <Text style={titleStyle}>{title}</Text>
       <Text style={dateStyle}>{date}</Text>
       <View style={buttonContainer}>
-        <Button title="View" onPress={() => {}} />
+        <Button title="View" color="#fff" onPress={() => {}} />
       </View>
     </View>
   );
