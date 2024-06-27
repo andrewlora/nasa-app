@@ -1,12 +1,15 @@
+if (__DEV__) {
+  require('./ReactotronConfig');
+}
 import React from 'react';
 import {SafeAreaView, StyleSheet} from 'react-native';
-import Home from './src/views/Home';
+import Routes from './src/routes';
 
 function App(): JSX.Element {
   const {container} = styles;
   return (
     <SafeAreaView style={container}>
-      <Home />
+      <Routes />
     </SafeAreaView>
   );
 }

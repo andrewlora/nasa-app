@@ -1,14 +1,22 @@
 import React, {FC} from 'react';
 import {Button, StyleSheet, Text, View} from 'react-native';
-import {PostImage as PostImageTypes} from '../../types';
-const PostImage: FC<PostImageTypes> = ({title, date}) => {
+import {
+  PostImageNavigationProps,
+  PostImage as PostImageTypes,
+} from '../../types';
+import {useNavigation} from '@react-navigation/native';
+const PostImage: FC<PostImageTypes> = ({title, date, url, explanation}) => {
+  const {navigate} = useNavigation<PostImageNavigationProps>();
   const {container, buttonContainer, titleStyle, dateStyle} = styles;
+  const handleViewPress = () => {
+    navigate('Detail', {title, date, url, explanation});
+  };
   return (
     <View style={container}>
       <Text style={titleStyle}>{title}</Text>
       <Text style={dateStyle}>{date}</Text>
       <View style={buttonContainer}>
-        <Button title="View" color="#fff" />
+        <Button title="View" onPress={handleViewPress} />
       </View>
     </View>
   );
@@ -17,7 +25,7 @@ const PostImage: FC<PostImageTypes> = ({title, date}) => {
 const styles = StyleSheet.create({
   container: {
     backgroundColor: 'rgba(18, 39, 113, 225)',
-    borderRadius: 3,
+    borderRadius: 15,
     marginBottom: 12,
     padding: 16,
   },

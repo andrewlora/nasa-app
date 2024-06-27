@@ -1,15 +1,21 @@
 import React, {FC} from 'react';
 import {Button, Image, StyleSheet, Text, View} from 'react-native';
-import {PostImage} from '../../types';
-const TodaysImage: FC<PostImage> = ({date, title, url}) => {
+import {useNavigation} from '@react-navigation/native';
+import {PostImage, PostImageNavigationProps} from '../../types';
+
+const TodaysImage: FC<PostImage> = ({date, title, url, explanation}) => {
+  const {navigate} = useNavigation<PostImageNavigationProps>();
   const {container, buttonContainer, image, titleStyle, dateStyle} = styles;
+  const handleViewPress = () => {
+    navigate('Detail', {date, title, url, explanation});
+  };
   return (
     <View style={container}>
-      <Image source={{uri: url}} style={image} />
+      {url && <Image source={{uri: url}} style={image} />}
       <Text style={titleStyle}>{title}</Text>
       <Text style={dateStyle}>{date}</Text>
       <View style={buttonContainer}>
-        <Button title="View" color="#fff" onPress={() => {}} />
+        <Button title="View" onPress={handleViewPress} />
       </View>
     </View>
   );
