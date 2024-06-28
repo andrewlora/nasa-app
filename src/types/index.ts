@@ -15,7 +15,4 @@ export type RootStackParamList = {
   Detail: PostImage;
 };
 
-export type PostImageNavigationProps = NativeStackNavigationProp<
-  RootStackParamList,
-  'Detail'
->;
+export type PostImageNavigationProps = NativeStackNavigationProp<RootStackParamList, 'Detail'>;

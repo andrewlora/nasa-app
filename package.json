@@ -1,5 +1,5 @@
 {
-  "name": "NasaApp",
+  "name": "nasa-app",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -34,6 +34,7 @@
     "eslint": "^8.19.0",
     "jest": "^29.6.3",
     "prettier": "2.8.8",
+    "react-native-dotenv": "^3.4.11",
     "react-test-renderer": "18.2.0",
     "reactotron-react-native": "^5.1.7",
     "typescript": "5.0.4"
